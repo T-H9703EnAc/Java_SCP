@@ -12,8 +12,14 @@ import static org.junit.Assert.*;
 public class AppTest {
 
     @Test 
-    public void appHasAGreeting() {
+    public void test1() {
         String[] args = {"1","1"};
+        new Controller(args);
+    }
+
+    @Test 
+    public void test2() {
+        String[] args = {"1","96"};
         new Controller(args);
     }
 }

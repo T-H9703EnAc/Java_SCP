@@ -27,11 +27,11 @@ public class NormalService implements ServiceImpl{
                 Connection connection = Jsoup.newSession().url(url).timeout(10000);
                 Document doc = connection.get();
                 bw.write(Util.getName(doc));
+                bw.newLine();
                 for(String status : Util.getStatus(doc)){
                     bw.write(status);
-                }
-                
-            
+                    bw.newLine();
+                }           
         } catch (Exception e) {
             e.printStackTrace();
         }

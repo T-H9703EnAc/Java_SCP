@@ -1,0 +1,8 @@
+version: '3.6'
+services:
+  java:
+    container_name: java
+    build: ./
+    tty: true
+    volumes:
+      - ./src:/java_project/

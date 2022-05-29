@@ -1,0 +1,14 @@
+{
+    "name": "java_gradle",
+    "workspaceFolder": "/java_project",
+    "dockerComposeFile": "../docker-compose.yml",
+    "settings": { 
+        // Macの場合
+        "terminal.integrated.defaultProfile.osx": "/bin/bash"     
+    },
+    "service": "java", //attachするコンテナはspringを指定
+    "extensions": [
+        "vscjava.vscode-java-pack", // JavaExtensionPack
+        "gabrielbb.vscode-lombok" //Lombok Annotations Support For VS Code
+    ]
+}

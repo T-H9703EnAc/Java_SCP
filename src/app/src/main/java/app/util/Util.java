@@ -1,7 +1,13 @@
 package app.util;
 
+import java.io.File;
+
+import java.util.List;
+
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+
+import app.bean.CharacterBean;
 
 public class Util {
     /**
@@ -9,24 +15,25 @@ public class Util {
      * @param doc
      * @return ステータス
      */
-    public static String[] getStatus(Document doc){
+    public static CharacterBean getStatus(Document doc){
         /**翻訳したい言語のクラス要素 */
         Elements elements = doc.getElementsByClass("table layout_right");
+        CharacterBean bean = new CharacterBean();
         String hpText = elements.first().getElementsByTag("tr").next().first().text();
         String atText = elements.first().getElementsByTag("tr").next().next().first().text();
         String blText = elements.first().getElementsByTag("tr").next().next().next().first().text();
         String ctText = elements.first().getElementsByTag("tr").next().next().next().next().first().text();
         String dfText = elements.first().getElementsByTag("tr").next().next().next().next().next().first().text();
         String spText = elements.first().getElementsByTag("tr").next().next().next().next().next().next().first().text();
-        System.out.println(hpText);
-        System.out.println(atText);
-        System.out.println(blText);
-        System.out.println(ctText);
-        System.out.println(dfText);
-        System.out.println(spText);
-        String[] status = {hpText, atText, blText, ctText, dfText, spText};
+        
+        bean.setH(replaceRegex(replaceRegex(hpText,Const.regex1),Const.regex3).strip());
+        bean.setA(replaceRegex(replaceRegex(atText,Const.regex1),Const.regex3).strip());
+        bean.setB(replaceRegex(replaceRegex(blText,Const.regex1),Const.regex3).strip());
+        bean.setC(replaceRegex(replaceRegex(ctText,Const.regex1),Const.regex3).strip());
+        bean.setD(replaceRegex(replaceRegex(dfText,Const.regex1),Const.regex3).strip());
+        bean.setS(replaceRegex(replaceRegex(spText,Const.regex1),Const.regex3).strip());
 
-        return replaceRegexArray(status, Const.regex1);
+        return bean;
     }
 
     /**

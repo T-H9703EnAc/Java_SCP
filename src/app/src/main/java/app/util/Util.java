@@ -1,9 +1,5 @@
 package app.util;
 
-import java.io.File;
-
-import java.util.List;
-
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 

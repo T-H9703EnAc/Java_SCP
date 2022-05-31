@@ -22,4 +22,16 @@ public class AppTest {
         String[] args = {"1","96"};
         new Controller(args);
     }
+
+    @Test 
+    public void test3() {
+        String[] args = {"2","1","2"};
+        new Controller(args);
+    }
+
+    @Test 
+    public void test4() {
+        String[] args = {"2","1","2","3"};
+        new Controller(args);
+    }
 }

@@ -1,12 +1,12 @@
 package app.services;
 
-import java.io.File;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
@@ -18,6 +18,7 @@ import org.jsoup.nodes.Document;
 
 import app.bean.CharacterBean;
 import app.interfaces.ServiceImpl;
+import app.util.CustomMappingStrategy;
 import app.util.Util;
 
 public class NormalService implements ServiceImpl{
@@ -52,9 +53,16 @@ public class NormalService implements ServiceImpl{
         return sb.toString();
     }
 
-    private void outputCSV(Writer writer,List<CharacterBean> beanList) throws CsvDataTypeMismatchException, CsvRequiredFieldEmptyException{
-        StatefulBeanToCsv<CharacterBean> beanToCsv = new StatefulBeanToCsvBuilder<CharacterBean>(writer).build();
-        beanToCsv.write(beanList);
+    private void outputCSV(Writer writer, List<CharacterBean> beanList) throws CsvDataTypeMismatchException, CsvRequiredFieldEmptyException{
+       
+        CustomMappingStrategy<CharacterBean> mappingStrategy = new CustomMappingStrategy<>();
+        mappingStrategy.setType(CharacterBean.class);
+
+        StatefulBeanToCsv<CharacterBean> beanToCsv = new StatefulBeanToCsvBuilder<CharacterBean>(writer)
+        .withSeparator(CSVWriter.DEFAULT_SEPARATOR)        
+        .withMappingStrategy(mappingStrategy)
+        .build();
+        beanToCsv.write(beanList);       
     }
     
 }

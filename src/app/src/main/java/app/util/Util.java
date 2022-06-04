@@ -19,15 +19,21 @@ public class Util {
         String ctText = elements.first().getElementsByTag("tr").next().next().next().next().first().text();
         String dfText = elements.first().getElementsByTag("tr").next().next().next().next().next().first().text();
         String spText = elements.first().getElementsByTag("tr").next().next().next().next().next().next().first().text();
-        
-        CharacterBean bean = new CharacterBean();
-        bean.setH(replaceRegex(replaceRegex(hpText,Const.regex1),Const.regex3).strip());
-        bean.setA(replaceRegex(replaceRegex(atText,Const.regex1),Const.regex3).strip());
-        bean.setB(replaceRegex(replaceRegex(blText,Const.regex1),Const.regex3).strip());
-        bean.setC(replaceRegex(replaceRegex(ctText,Const.regex1),Const.regex3).strip());
-        bean.setD(replaceRegex(replaceRegex(dfText,Const.regex1),Const.regex3).strip());
-        bean.setS(replaceRegex(replaceRegex(spText,Const.regex1),Const.regex3).strip());
-
+        System.out.println(hpText);
+        System.out.println(atText);
+        System.out.println(blText);
+        System.out.println(ctText);
+        System.out.println(dfText);
+        System.out.println(spText);
+        CharacterBean bean = new CharacterBean(
+            "",
+            replaceRegex(replaceRegex(hpText,Const.regex1),Const.regex3).strip(),
+            replaceRegex(replaceRegex(atText,Const.regex1),Const.regex3).strip(),
+            replaceRegex(replaceRegex(blText,Const.regex1),Const.regex3).strip(),
+            replaceRegex(replaceRegex(ctText,Const.regex1),Const.regex3).strip(),
+            replaceRegex(replaceRegex(dfText,Const.regex1),Const.regex3).strip(),
+            replaceRegex(replaceRegex(spText,Const.regex1),Const.regex3).strip()
+        );
         return bean;
     }
 

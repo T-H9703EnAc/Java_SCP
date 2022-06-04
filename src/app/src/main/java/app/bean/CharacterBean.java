@@ -38,17 +38,19 @@ public class CharacterBean implements Serializable{
     @CsvBindByPosition(position = 6)
     @CsvBindByName(column = "すばやさ", required = true)
     String s;
+    public CharacterBean(){};
+    public CharacterBean(String name, String h, String a, String b, String c, String d, String s){
+        this.name = name;
+        this.h = h;
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+        this.s = s;
+    }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
-        .append("名前", name)
-        .append("HP",h)
-        .append("こうげき", a)
-        .append("ぼうぎょ", b)
-        .append("とくこう", c)
-        .append("とくぼう", d)
-        .append("すばやさ", s)
-        .toString();
+        return ToStringBuilder.reflectionToString(this);
     }
 }

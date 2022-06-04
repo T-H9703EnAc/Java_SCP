@@ -47,11 +47,11 @@ public class Util {
      * @param strArray
      * @return
      */
-    public static String[] replaceRegexArray(String[] strArray, String regax){
+    public static String[] replaceRegexArray(String[] strArray, String regex){
         String[] array = new String[strArray.length];
         int index = 0;
         for(String str : strArray){
-            array[index] = str.replaceAll(regax, "");
+            array[index] = str.replaceAll(regex, "");
             index++;
         }
         return array;
@@ -62,8 +62,8 @@ public class Util {
      * @param strArray
      * @return
      */
-    public static String replaceRegex(String str, String regax){
-        str = str.replaceAll(regax, "");
+    public static String replaceRegex(String str, String regex){
+        str = str.replaceAll(regex, "");
         return str;
     }
 }

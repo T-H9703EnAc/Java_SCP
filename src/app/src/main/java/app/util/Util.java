@@ -34,6 +34,7 @@ public class Util {
             replaceRegex(replaceRegex(dfText,Const.regex1),Const.regex3).strip(),
             replaceRegex(replaceRegex(spText,Const.regex1),Const.regex3).strip()
         );
+        System.out.println(bean);
         return bean;
     }
 

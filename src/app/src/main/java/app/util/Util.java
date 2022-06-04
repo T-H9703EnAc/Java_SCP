@@ -12,7 +12,6 @@ public class Util {
      * @return ステータス
      */
     public static CharacterBean getStatus(Document doc){
-        /**翻訳したい言語のクラス要素 */
         Elements elements = doc.getElementsByClass("table layout_right");
         CharacterBean bean = new CharacterBean();
         String hpText = elements.first().getElementsByTag("tr").next().first().text();
@@ -38,7 +37,6 @@ public class Util {
      * @return 名前
      */
     public static String getName(Document doc){
-        /**翻訳したい言語のクラス要素 */
         Elements elements = doc.getElementsByTag("h1");
         String name = elements.first().getElementsByTag("a").first().html();
         System.out.println(name);       

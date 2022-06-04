@@ -12,8 +12,7 @@ public class Util {
      * @return ステータス
      */
     public static CharacterBean getStatus(Document doc){
-        Elements elements = doc.getElementsByClass("table layout_right");
-        CharacterBean bean = new CharacterBean();
+        Elements elements = doc.getElementsByClass("table layout_right");      
         String hpText = elements.first().getElementsByTag("tr").next().first().text();
         String atText = elements.first().getElementsByTag("tr").next().next().first().text();
         String blText = elements.first().getElementsByTag("tr").next().next().next().first().text();
@@ -21,6 +20,7 @@ public class Util {
         String dfText = elements.first().getElementsByTag("tr").next().next().next().next().next().first().text();
         String spText = elements.first().getElementsByTag("tr").next().next().next().next().next().next().first().text();
         
+        CharacterBean bean = new CharacterBean();
         bean.setH(replaceRegex(replaceRegex(hpText,Const.regex1),Const.regex3).strip());
         bean.setA(replaceRegex(replaceRegex(atText,Const.regex1),Const.regex3).strip());
         bean.setB(replaceRegex(replaceRegex(blText,Const.regex1),Const.regex3).strip());

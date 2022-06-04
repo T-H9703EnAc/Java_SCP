@@ -38,7 +38,7 @@ public class NormalService implements ServiceImpl{
                 List<CharacterBean> beanList = new ArrayList<>();
                 beanList.add(bean);            
                 outputCSV(writer,beanList);
-                          
+                result = "成功";
         } catch (Exception e) {
             e.printStackTrace();
         }

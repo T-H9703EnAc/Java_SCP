@@ -35,7 +35,7 @@ public class MultipleService implements ServiceImpl{
                 bean.setName(Util.getName(doc));
                 System.out.println(bean);
                 beanList.add(bean);
-                
+                result = "成功";
             }
             CSVUtil<CharacterBean> csvUtil = new CSVUtil<>();
             csvUtil.outputCSV(writer, beanList, CharacterBean.class);
